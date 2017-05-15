@@ -1,16 +1,16 @@
 # XRecyclerView
 a RecyclerView that implements pullrefresh , loadingmore and header featrues.you can use it like a standard RecyclerView.
-you don't need to implement a special adapter .
+you don't need to implement a special adapter .qq 群478803619
 Screenshots
 -----------
 ![demo](https://github.com/jianghejie/XRecyclerView/blob/master/art/demo.gif)
 
-on real device it is much more smoother.
+on real device it is much more smoother. 
 Usage
 -----
 ##gradle
 ```groovy
-compile 'com.jcodecraeer:xrecyclerview:1.2.7'
+compile 'com.jcodecraeer:xrecyclerview:1.3.2'
 ```
 just like a standard RecyclerView
 ```java
@@ -51,6 +51,11 @@ to notify that the refreshing work is done.
 here is what we get:
 
 ![default](https://github.com/jianghejie/XRecyclerView/blob/master/art/default.gif)
+
+##call refresh() manually(I change the previous setRefreshing() method to refresh() )
+```java
+mRecyclerView.refresh();
+```
 
 ###custom refresh and loading more style
 pull refresh and loading more style is highly customizable.

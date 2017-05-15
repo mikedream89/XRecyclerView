@@ -109,6 +109,7 @@ public class ArrowRefreshHeader extends LinearLayout implements BaseRefreshHeade
 			mArrowImageView.clearAnimation();
 			mArrowImageView.setVisibility(View.INVISIBLE);
 			mProgressBar.setVisibility(View.VISIBLE);
+            smoothScrollTo(mMeasuredHeight);
 		} else if(state == STATE_DONE) {
             mArrowImageView.setVisibility(View.INVISIBLE);
             mProgressBar.setVisibility(View.INVISIBLE);
@@ -202,12 +203,14 @@ public class ArrowRefreshHeader extends LinearLayout implements BaseRefreshHeade
         if (mState == STATE_REFRESHING && height <=  mMeasuredHeight) {
             //return;
         }
-        int destHeight = 0; // default: scroll back to dismiss header.
-        // is refreshing, just scroll back to show all the header.
-        if (mState == STATE_REFRESHING) {
-            destHeight = mMeasuredHeight;
+        if (mState != STATE_REFRESHING) {
+            smoothScrollTo(0);
         }
-        smoothScrollTo(destHeight);
+
+        if (mState == STATE_REFRESHING) {
+            int destHeight = mMeasuredHeight;
+            smoothScrollTo(destHeight);
+        }
 
         return isOnRefresh;
     }

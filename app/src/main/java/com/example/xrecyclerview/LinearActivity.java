@@ -49,7 +49,6 @@ public class LinearActivity extends AppCompatActivity {
                 times = 0;
                 new Handler().postDelayed(new Runnable(){
                     public void run() {
-
                         listData.clear();
                         for(int i = 0; i < 15 ;i++){
                             listData.add("item" + i + "after " + refreshTime + " times of refresh");
@@ -89,13 +88,9 @@ public class LinearActivity extends AppCompatActivity {
         });
 
         listData = new  ArrayList<String>();
-        for(int i = 0; i < 15 ;i++){
-            listData.add("item" + i);
-        }
         mAdapter = new MyAdapter(listData);
-
         mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setRefreshing(true);
+        mRecyclerView.refresh();
     }
 
     @Override
